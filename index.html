@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thumbnails</title>
+<link rel="stylesheet" href="styles-index.css">
+</head>
+<body>
+<div class="grid">
+  <!-- the top 4, these never move -->
+  <a href="page.html"><img src="images/01.png" alt="Item 1"></a>
+  <a href="https://example.com/02"><img src="images/02.png"  alt="Item 2"></a>
+  <a href="https://example.com/01"><img src="images/03.png" alt="Item 1"></a>
+  <a href="https://example.com/02"><img src="images/04.png"  alt="Item 2"></a>
+  
+  <!-- these will shuffle around based on the code on the bottom -->
+  <a href="https://example.com/01"><img src="images/05.png" alt="Item 1"></a>
+  <a href="https://example.com/02"><img src="images/06.png"  alt="Item 2"></a>
+  <a href="https://example.com/01"><img src="images/07.png" alt="Item 1"></a>
+  <a href="https://example.com/02"><img src="images/08.png"  alt="Item 2"></a>  
+  <a href="https://example.com/01"><img src="images/09.png" alt="Item 1"></a>
+  <a href="https://example.com/02"><img src="images/10.png"  alt="Item 2"></a>
+  <a href="https://example.com/01"><img src="images/11.png" alt="Item 1"></a>
+  <a href="https://example.com/02"><img src="images/12.png"  alt="Item 2"></a>  
+  <a href="https://example.com/01"><img src="images/13.png" alt="Item 1"></a>
+  <a href="https://example.com/02"><img src="images/14.png"  alt="Item 2"></a>
+  <a href="https://example.com/01"><img src="images/15.png" alt="Item 1"></a>
+  <a href="https://example.com/01"><img src="images/16.png" alt="Item 1"></a>
+</div>
+
+<br />
+<img class="center-img" src="./images/footer.png" alt="Page footer graphic">
+
+<script>
+  const grid = document.querySelector('.grid');
+  const rest = Array.from(grid.children).slice(4);   // everything after the first 4
+
+  // Fisher-Yates shuffle
+  for (let i = rest.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [rest[i], rest[j]] = [rest[j], rest[i]];
+  }
+
+  rest.forEach(el => grid.appendChild(el));   // appendChild moves existing nodes, so no duplicates
+  
+  // Falling Snowflakes - myspace style
+  (() => {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const fx = document.createElement('div');
+    fx.id = 'fx';
+    document.body.appendChild(fx);
+    const rand = (a, b) => a + Math.random() * (b - a);
+
+    for (let i = 0; i < 30; i++) {
+      const f = document.createElement('div');
+      f.className = 'flake';
+      f.textContent = '❄';
+      f.style.left = rand(0, 100) + 'vw';
+      f.style.fontSize = rand(10, 24) + 'px';
+      f.style.opacity = rand(0.5, 1);
+      const fall = rand(8, 16), sway = rand(2, 4);
+      f.style.animation =
+        `fall ${fall}s linear ${-rand(0, fall)}s infinite, ` +
+        `sway ${sway}s ease-in-out ${-rand(0, sway)}s infinite alternate`;
+      fx.appendChild(f);
+    }
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+  body { margin: 0; padding: 1rem; font-family: system-ui, sans-serif; }
+
+  /* Max 4 across, then 3, 2, 1 as the window narrows.
+     Change --w / --h if you change the thumbnail size. */
+  .grid {
+    --w: 400px;
+    --h: 400px;
+    --gap: 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, var(--w));
+    gap: var(--gap);
+    justify-content: center;
+    max-width: calc(4 * var(--w) + 3 * var(--gap));
+    margin: 0 auto;
+	align-items:end;
+  }
+  .grid a { display: block; width: var(--w); max-width: 100%; }
+  .grid img {
+    display: block;
+    width: 100%;
+    height: auto;
+    
+    background: #fff;      /* shows a grey block until the image loads */
+    border-radius: 4px;
+  }
+  
+  .center-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+  
+  #fx { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 9999; }
+
+  .flake { position: absolute; top: 0; color: #9cc9ff; }
+  @keyframes fall { from { translate: 0 -3rem; } to { translate: 0 105vh; } }
+  @keyframes sway { from { transform: translateX(-15px); } to { transform: translateX(15px); } }

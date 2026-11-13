@@ -1,0 +1,61 @@
+  :root {
+    --body-width: 70%;       /* width of the text card on wide screens */
+    --border: #888;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    line-height: 1.6;
+  }
+
+  /* Top bar: back on the left, updated text on the right */
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+  }
+  .topbar .updated { font-size: 0.85rem; opacity: 0.7; text-align: right; }
+
+  /* Header graphic: fills the width, scales down, never overflows */
+  .hero { display: block; width: 100%; height: auto; }
+
+  /* Embed area: no width constraint. Swap the iframe for a div/canvas
+     for a JS app. The aspect-ratio keeps the game from collapsing. */
+  .embed { width: 100%; }
+  .embed iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+  }
+  
+  .embed img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;   /* centers it, replacing <center> */
+  }
+  
+  .center-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  /* Body text card: centered, 70% wide, rounded, dotted border */
+  .content {
+    width: var(--body-width);
+    margin: 2rem auto;
+    padding: 1.5rem 2rem;
+    border: 2px dotted var(--border);
+    border-radius: 16px;
+  }
+
+  /* On phones 70% is too narrow, so let the card use most of the screen */
+  @media (max-width: 700px) {
+    .content { width: 92%; padding: 1rem 1.25rem; }
+  }
