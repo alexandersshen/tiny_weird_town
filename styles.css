@@ -52,7 +52,41 @@
     margin: 0 auto;
   }
 
+  .center-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+  
+  /* game wrapper and container stuff */
 
+  /* Game container */
+  .game-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    visibility: hidden; /* Hide until properly positioned */
+  }
+
+  /* Game wrapper */
+  .game-wrapper {
+    position: relative;
+    width: 640px;
+    height: 480px;
+    margin: 0 auto;
+    transform-origin: top left;
+  }
+
+  /* Game iframe */
+  .game-wrapper iframe {
+    display: block;
+    width: 640px;
+    height: 480px;
+    border: none;
+    outline: none;
+  }
+  
   /* Body text card: centered, 70% wide, rounded, dotted border */
   .content {
     width: var(--body-width);

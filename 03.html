@@ -15,17 +15,18 @@
 
 <!-- <img class="hero" src="./images/banner.png" alt="Page header graphic"> -->
 
-<div style="width: 100%; display: flex; justify-content: center;">
-  <iframe
-    src="games/typing_is_fishing/index.html"
-    title="Typing is Fishing"
-    width="640"
-    height="480"
-    scrolling="no"
-    allowfullscreen
-    style="display: block; width: 640px; height: 480px; flex: 0 0 640px; border: 0;">
-  </iframe>
+
+<div class="game-container" data-width="640" data-height="480">
+  <div class="game-wrapper">
+    <iframe
+      src="games/typing_is_fishing/index.html"
+      title="Typing is Fishing"
+      scrolling="no"
+      allowfullscreen>
+    </iframe>
+  </div>
 </div>
+
 
 <main class="content">
   <h1>Typing is Fishing</h1>
@@ -37,7 +38,10 @@
   <p>Your little character is sitting and fishing. When they get surprised with the "!", that means you can press spacebar to start catching the fish. Type the word you see to catch the fish. If you do not feel like you can catch the fish, you can let it go by.</p>
 </main>
 
-<img class="center-img" src="./images/footer.png" alt="Page footer graphic">
+<a href = "footer.html"><img class="center-img" src="./images/footer.png" alt="Page footer graphic"></a>
+
+
+<script src = "./js/game.js"></script>
 
 </body>
 </html>
