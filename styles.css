@@ -22,29 +22,36 @@
   /* Header graphic: fills the width, scales down, never overflows */
   .hero { display: block; width: 100%; height: auto; }
 
-  /* Embed area: no width constraint. Swap the iframe for a div/canvas
-     for a JS app. The aspect-ratio keeps the game from collapsing. */
-  .embed { width: 100%; }
+
+  /* Embed area: centered, no extra spacing */
+  .embed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* GameMaker iframe: 640x480, no scrollbars */
   .embed iframe {
     display: block;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    border: 0;
-  }
-  
-  .embed img {
-    display: block;
+    width: 640px;
+    height: 480px;
     max-width: 100%;
-    height: auto;
-    margin: 0 auto;   /* centers it, replacing <center> */
+    aspect-ratio: 4 / 3;
+    border: 0;
+    overflow: hidden;
   }
-  
-  .center-img {
+
+  /* Images inside embed areas */
+  .embed img {
     display: block;
     max-width: 100%;
     height: auto;
     margin: 0 auto;
   }
+
 
   /* Body text card: centered, 70% wide, rounded, dotted border */
   .content {
